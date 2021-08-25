@@ -11,6 +11,7 @@
 // @grant        none
 // ==/UserScript==
 
+let a = 0;
 let pause = 5000; // Пауза между кликами
 let T = pause; // Первая пауза
 setTimeout(() => {
