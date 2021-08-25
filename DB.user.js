@@ -6,6 +6,8 @@
 // @author       You
 // @match        https://designbundles.net/search?search=*
 // @icon         https://www.google.com/s2/favicons?domain=designbundles.net
+// @homepage     https://github.com/DesignBun/DB
+// @updateURL    https://github.com/DesignBun/DB/raw/main/DB.user.js
 // @grant        none
 // ==/UserScript==
 
