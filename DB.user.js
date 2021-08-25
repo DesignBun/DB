@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DB
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  try to take over the world!
 // @author       You
 // @match        https://designbundles.net/search?search=*
@@ -11,7 +11,6 @@
 // @grant        none
 // ==/UserScript==
 
-let a = 0;
 let pause = 5000; // Пауза между кликами
 let T = pause; // Первая пауза
 setTimeout(() => {
