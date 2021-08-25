@@ -1,14 +1,21 @@
 // ==UserScript==
 // @name         DB
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  try to take over the world!
 // @author       You
 // @match        https://designbundles.net/search?search=*
 // @icon         https://www.google.com/s2/favicons?domain=designbundles.net
 // @homepage     https://github.com/DesignBun/DB
 // @updateURL    https://github.com/DesignBun/DB/raw/main/DB.user.js
-// @grant        none
+// @grant GM_setValue
+// @grant GM_getValue
+// @grant GM_addValueChangeListener
+// @grant GM_setClipboard
+// @grant unsafeWindow
+// @grant window.close
+// @grant window.focus
+// @grant window.onurlchange
 // ==/UserScript==
 
 let pause = 5000; // Пауза между кликами
@@ -26,7 +33,8 @@ setTimeout(() => {
             let cart = card[i].querySelector('.product-box__add-cart');
             let cartStyle = window.getComputedStyle(cart);
             console.log(favStyle.getPropertyValue('background-color') + cartStyle.getPropertyValue('background-color') );
-            if ((favStyle.getPropertyValue('background-color') == 'rgb(255, 255, 255)') & ( cartStyle.getPropertyValue('background-color') == 'rgb(76, 197, 251)' ) ) {
+            if ((favStyle.getPropertyValue('background-color') == 'rgb(255, 255, 255)') &
+                ( cartStyle.getPropertyValue('background-color') == 'rgb(76, 197, 251)' ) ) {
                 let pin = card[i].querySelector('.-pinterest');
                 pin.click();
                 fav.click();
@@ -36,6 +44,7 @@ setTimeout(() => {
                 T = pause;
                 if (now >= count) { i = 9999; };
             } else {
+                if (now >= count) { i = 9999; };
                 T = 100;
                 //alert("-");
             }
@@ -48,3 +57,6 @@ setTimeout(() => {
     }
     myLoop();
 }, Math.random() * 2000 + 2000);
+
+
+
