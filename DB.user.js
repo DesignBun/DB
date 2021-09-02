@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DB
 // @namespace    http://tampermonkey.net/
-// @version      0.8
+// @version      0.9
 // @description  try to take over the world!
 // @author       You
 // @match        https://designbundles.net/*
@@ -34,10 +34,16 @@ setTimeout(() => {
             let fav = card[i].querySelector('.product-box__social');
             let favStyle = window.getComputedStyle(fav);
             let cart = card[i].querySelector('.product-box__add-cart');
-            let cartStyle = window.getComputedStyle(cart);
-            console.log(favStyle.getPropertyValue('background-color') + cartStyle.getPropertyValue('background-color') );
+            let bc = 0
+            if (cart) {
+                let cartStyle = window.getComputedStyle(cart);
+                bc = cartStyle.getPropertyValue('background-color')
+            } else {
+                bc = 'rgb(76, 197, 251)'
+                }
+            console.log(favStyle.getPropertyValue('background-color') + bc );
             if ((favStyle.getPropertyValue('background-color') == 'rgb(255, 255, 255)') &
-                ( cartStyle.getPropertyValue('background-color') == 'rgb(76, 197, 251)' ) & count > 0) {
+                ( bc == 'rgb(76, 197, 251)' ) & count > 0) {
                 let pin = card[i].querySelector('.-pinterest');
                 pin.click();
                 fav.click();
