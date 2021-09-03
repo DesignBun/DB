@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DB
 // @namespace    http://tampermonkey.net/
-// @version      0.9
+// @version      0.10
 // @description  try to take over the world!
 // @author       You
 // @match        https://designbundles.net/*
@@ -36,8 +36,8 @@ setTimeout(() => {
             let cart = card[i].querySelector('.product-box__add-cart');
             let bc = 0
             if (cart) {
-                let cartStyle = window.getComputedStyle(cart);
-                bc = cartStyle.getPropertyValue('background-color')
+                //let cartStyle = window.getComputedStyle(cart);
+                bc = window.getComputedStyle(cart).getPropertyValue('background-color');
             } else {
                 bc = 'rgb(76, 197, 251)'
                 }
@@ -58,7 +58,7 @@ setTimeout(() => {
                 //alert("-");
             }
             i++;
-            if (i < 36) {
+            if (i < card.length) {
                 myLoop();
             } else { alert(`Выполнил кликов ${now}`); }
 
